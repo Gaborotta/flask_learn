@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8"/>
+        <!-- <link rel="stylesheet" href="/static/style.css"/> -->
+    </head>
+    <body>
+        <!-- <h1>Hello World</h1> -->
+        <!-- {# if random > 0.5 #}
+            <h1>{#{obj['title']}#}</h1>
+        {# else #}
+            <h1>Fuga</h1>
+        {# endif #}
+        <ul>
+            {# for item in l #}
+                <li>{{item}}</li>
+            {# endfor #}
+        </ul> -->
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            {%for item in l %}
+            <tr>
+                <td>{{item.name}}</td><td>{{item.value}}</td>
+            </tr>
+            {% endfor%}
+        </table>
+    </body>
+</html>
