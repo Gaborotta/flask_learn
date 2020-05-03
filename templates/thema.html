@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf_8"/>
+        <title>まんだら～と</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        {% block javascript %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <a href="/" class="headA">まんだら～と</a>
+            </div>
+        </header>
+        {% block body %}
+        {% endblock %}
+        <footer>
+            <div class="container">
+                <div class="footA">
+                    <!-- <h2>まんだら～と</h2> -->
+                    <span>powered by Gaborotta</span>
+                    <span>
+                        <a href="https://twitter.com/gaborotta">
+                            <img src="static/img/Twitter.svg" alt="Twitter">
+                        </a>
+                    </span>                
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

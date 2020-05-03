@@ -1,24 +1,79 @@
 #%%
+import os
+import json
 from flask import Flask
-from flask import render_template
+from flask import render_template, url_for, redirect, flash
 from flask import request
+from flask import make_response
 from werkzeug.utils import secure_filename
 from random import random
+# from flask_wtf.csrf import CSRFProtect
+
+# from form import Thema_form, Sub_Thema_form
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = os.urandom(24)
+app.config['WTF_CSRF_ENABLED'] = False
+# csrf = CSRFProtect(app)
 
+# トップページ
 @app.route('/')
 def index():
-    return render_template(
-        'index.html', 
-        # obj={'title': 'hoge'}, random=random(), 
-        # l=['Hoge','Fuga','Foo']
-        l= [
-            {'name': 'hoge', 'value': '1'},
-            {'name': 'fuga', 'value': '2'},
-            {'name': 'Foo', 'value': '3'},
-        ]
-    )
+    return render_template('index.html')
+
+# メインページ
+@app.route('/main', methods=["GET", "POST"])
+def main_page():
+    if request.method == 'POST':
+        main_thema = request.form['main_thema']
+        response = make_response(render_template('sub.html', main_thema=main_thema))
+        response.set_cookie('main_thema', main_thema)
+        return response    
+    return render_template('main.html')
+
+# サブテーマページ
+@app.route('/sub', methods=["GET", "POST"])
+def sub_page():
+    if request.method == 'GET':
+        main_thema = request.cookies.get('main_thema')
+        if main_thema:
+            return render_template('sub.html', main_thema=main_thema)
+        else:
+            return render_template('main.html')
+    elif request.method == 'POST':
+        main_thema = request.cookies.get('main_thema')
+        # print(request.form)       
+        response = make_response(render_template('whole.html', main_thema=main_thema, sub_themas=request.form.to_dict()))
+        response.set_cookie('sub_themas', value=json.dumps(request.form.to_dict()) )
+        return response    
+
+# マンダラートページ
+@app.route('/whole', methods=["GET", "POST"])
+def whole_page():
+    if request.method == 'GET':
+        main_thema = request.cookies.get('main_thema')
+        sub_themas = json.loads(request.cookies.get('sub_themas'))
+        if sub_themas:
+            return render_template('whole.html', main_thema=main_thema, sub_themas=sub_themas)
+        elif main_thema:
+            return render_template('sub.html', main_thema=main_thema)
+        else:
+            return render_template('main.html')
+    elif request.method == 'POST':
+        main_thema = request.cookies.get('main_thema')
+        sub_themas = json.loads(request.cookies.get('sub_themas'))
+        
+        print(request.form)       
+        response = make_response(render_template('whole.html', main_thema=main_thema, sub_themas=sub_themas))
+        response.set_cookie('ideas', value=json.dumps(request.form.to_dict()) )
+        return response    
+
+# 完成ページ
+@app.route('/finish', methods=["GET", "POST"])
+def finish_page():
+    return
+
+### 下記勉強
 
 @app.route('/upload', methods=['GET'])
 def render_upload_form():

@@ -1,0 +1,21 @@
+{% extends "thema.html" %}
+{% block javascript %}
+    <script src="static/js/main_validation.js" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <section class="con_main">
+        <form method="POST" action="/main">
+            <!-- <img src="static/img/logo.svg" alt=""> -->
+            <div class="message_text">
+                <h1>メインテーマを決めましょう。</h1>
+            </div>
+            <div class="main_thema_txt_box">
+                <p class="alert">メインテーマを入力してください</p>
+                <input type="text" id="text" name="main_thema" placeholder="メインテーマ">
+            </div>
+            <div class="btn">
+                <button type="submit" id="submitBtn">これでOK！</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

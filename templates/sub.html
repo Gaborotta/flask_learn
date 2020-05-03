@@ -1,0 +1,41 @@
+{% extends "thema.html" %}
+{% block javascript %}
+    <script src="static/js/sub_validation.js" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <section class="con_main">
+        <form method="POST" action="/sub">
+            <!-- <img src="static/img/logo.svg" alt=""> -->
+            <div class="message_text">
+                <h1>メインテーマから連想するサブテーマを8つ入力しましょう。</h1>
+            </div>
+            <div class="sub_thema_txt_box">
+                <div class="alert">サブテーマを入力してください</div>
+                <div>
+                    <table border="1">
+                        <tr name="1">
+                            <td><input type="text" id="text" name="sub_thema1" placeholder="サブテーマ"></td>
+                            <td><input type="text" id="text" name="sub_thema2" placeholder="サブテーマ"></td>
+                            <td><input type="text" id="text" name="sub_thema3" placeholder="サブテーマ"></td>
+                        </tr name="2">
+                        <tr>
+                            <td><input type="text" id="text" name="sub_thema4" placeholder="サブテーマ"></td>
+                            <td class="main_thema">
+                                <div>{{main_thema}}</div>
+                            </td>
+                            <td><input type="text" id="text" name="sub_thema5" placeholder="サブテーマ"></td>
+                        </tr>
+                        <tr name="3">
+                            <td><input type="text" id="text" name="sub_thema6" placeholder="サブテーマ"></td>
+                            <td><input type="text" id="text" name="sub_thema7" placeholder="サブテーマ"></td>
+                            <td><input type="text" id="text" name="sub_thema8" placeholder="サブテーマ"></td>
+                        </tr>
+                      </table>
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit" id="submitBtn">これでOK！</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

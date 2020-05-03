@@ -1,0 +1,123 @@
+{% extends "thema.html" %}
+{% block javascript %}
+    <script src="static/js/whole_validation.js" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <section class="con_main">
+        <form method="POST" action="/whole">
+            <!-- <img src="static/img/logo.svg" alt=""> -->
+            <div class="message_text">
+                <h1>サブテーマから連想するものをそれぞれ8つ入力しましょう。</h1>
+            </div>
+            <div class="whole_thema_txt_box">
+                <div class="alert">空欄を入力してください</div>
+                <div>
+                    <table border="whole">
+                        <tr name="top1">
+                            <td><input type="text" id="text" name="idea1_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea1_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea1_3" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_3" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_3" placeholder=""></td>
+                        </tr name="top2">
+                        <tr>
+                            <td><input type="text" id="text" name="idea1_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema1}}</div></td>
+                            <td><input type="text" id="text" name="idea1_5" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema2}}</div></td>
+                            <td><input type="text" id="text" name="idea2_5" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema3}}</div></td>
+                            <td><input type="text" id="text" name="idea3_5" placeholder=""></td>
+                        </tr>
+                        <tr name="top3">
+                            <td><input type="text" id="text" name="idea1_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea1_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea1_8" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea2_8" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea3_8" placeholder=""></td>
+                        </tr>
+                        <tr name="middle1">
+                            <td><input type="text" id="text" name="idea4_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea4_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea4_3" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema1}}</div></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema2}}</div></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema3}}</div></td>
+                            <td><input type="text" id="text" name="idea5_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea5_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea5_3" placeholder=""></td>
+                        </tr name="middle2">
+                        <tr>
+                            <td><input type="text" id="text" name="idea4_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema4}}</div></td>
+                            <td><input type="text" id="text" name="idea4_5" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema4}}</div></td>
+                            <td class="main_thema"><div>{{main_thema}}</div></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema5}}</div></td>
+                            <td><input type="text" id="text" name="idea5_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema5}}</div></td>
+                            <td><input type="text" id="text" name="idea5_5" placeholder=""></td>
+                        </tr>
+                        <tr name="middle3">
+                            <td><input type="text" id="text" name="idea4_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea4_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea4_8" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema6}}</div></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema7}}</div></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema8}}</div></td>
+                            <td><input type="text" id="text" name="idea5_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea5_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea5_8" placeholder=""></td>
+                        </tr>
+                        <tr name="bottom1">
+                            <td><input type="text" id="text" name="idea6_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea6_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea6_3" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_3" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_1" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_2" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_3" placeholder=""></td>
+                        </tr name="bottom2">
+                        <tr>
+                            <td><input type="text" id="text" name="idea6_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema6}}</div></td>
+                            <td><input type="text" id="text" name="idea6_5" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema7}}</div></td>
+                            <td><input type="text" id="text" name="idea7_5" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_4" placeholder=""></td>
+                            <td class="sub_thema"><div>{{sub_themas.sub_thema8}}</div></td>
+                            <td><input type="text" id="text" name="idea8_5" placeholder=""></td>
+                        </tr>
+                        <tr name="bottom3">
+                            <td><input type="text" id="text" name="idea6_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea6_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea6_8" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea7_8" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_6" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_7" placeholder=""></td>
+                            <td><input type="text" id="text" name="idea8_8" placeholder=""></td>
+                        </tr>  
+                    </table>                    
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit" id="submitBtn">これでOK！</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

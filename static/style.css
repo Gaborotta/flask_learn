@@ -1,3 +1,289 @@
-h1 {
-    color: red
+/* 基本色 */
+:root {
+    --main-color:        #5D9AB2;
+    --accent-color:      #BF6A7A;
+    --dark-color:        #2B5566;
+    --text-bright-color: #ffffff;
+    --text-alert-color:  #ff0000;
+}
+
+/* 基本設定: ページ全体 */
+body {
+    margin: 0;
+    font-family: 'メイリオ',
+        'Hiragino Kaku Gothic Pro',
+        sans-serif
+}
+
+/* コンテンツA: ヒーローイメージ */
+.conA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 450px;
+    background-image: linear-gradient(
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.2)
+    ), url(img/flog.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    color: var(--text-bright-color);
+    text-align: center;
+}
+
+.conA h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 11vw;
+    letter-spacing: 0.2em;
+    margin-left: 0.2em;
+}
+
+.conA p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.conA img {
+    width: 16%;
+}
+
+.conA a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: solid 3px currentColor;
+    border-radius: 6px;
+    background-color: #BF6A7A;
+    background-color: var(--accent-color);
+    color:  #ffffff;
+    color: var(--text-bright-color);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.conA a:hover {
+    transform: scale(1.1,1.1);
+}
+
+/* フッター */
+footer {
+    color: #ffffff;
+    color: var(--text-bright-color);
+    background-color: #2B5566;
+    background-color: var(--dark-color);
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+}
+
+/* フッターA: サイト情報*/
+.footA h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.2em;
+}
+
+.footA p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.footA a {
+    padding: 0;
+    color: inherit;
+    font-size: 9px;
+    text-decoration: none;
+}
+
+/* ヘッダー */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+}
+
+/* ヘッダーA：サイト名 */
+.headA {
+    display: inline-block;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #5D9AB2;
+    background-color: var(--main-color);
+    color: #ffffff;
+    color: var(--text-bright-color);
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+/* メインページ */
+.con_main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 450px;
+    background-image: linear-gradient(
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.7)
+    ), url(img/flog.jpg);
+    background-position: center;
+    background-size: cover;
+    /* color: #ffffff;
+    color: var(--text-bright-color); */
+    text-align: center;
+}
+
+.message_text h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 4vw;
+    letter-spacing: 0.2em;
+    margin-left: 0.2em;
+}
+
+.alert{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    /* font-size: 20px; */
+    color: #ff0000;
+    color: var(--text-alert-color);
+}
+
+.main_thema_txt_box input{
+    width: 80%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: 2px solid #dddddd;
+    box-sizing: border-box;
+}
+
+.sub_thema_txt_box {
+    margin-bottom: 15px;
+}
+
+.sub_thema_txt_box table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid rgba(0,0,0,0);
+    line-height: 1.5;
+}
+
+.sub_thema_txt_box input {
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+
+.whole_thema_txt_box {
+    margin-bottom: 15px;
+}
+
+.whole_thema_txt_box table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid rgba(0,0,0,0);
+    line-height: 1.5;
+}
+
+.whole_thema_txt_box input {
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: 2px solid #ff9900; 
+    z-index: 10;
+    outline: 0;
+}
+
+.main_thema div{
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    line-height: 8vh;
+    background-color: #2B5566;
+    background-color: var(--dark-color);
+    color: #FFFFFF;
+    color: ver(--text-bright-color);
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+
+.sub_thema div{
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    line-height: 8vh;
+    background-color: #5D9AB2;
+    background-color: var(--main-color);
+    color: #FFFFFF;
+    color: ver(--text-bright-color);
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+
+
+.btn button{
+    /* width: 50%; */
+    padding: 10px 30px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: solid 3px currentColor;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #BF6A7A;
+    background-color: var(--accent-color);
+    color:  #ffffff;
+    color: var(--text-bright-color);
+}
+
+.btn button:hover {
+    transform: scale(1.1,1.1);
+}
+
+
+/* 限界設定 */
+@media (min-width: 768px) {
+    .conA h1 {
+        font-size: 84.5px;
+    }
+    
+    .conA p {
+        font-size: 24px;
+    }
+
+    .message_text h1 {
+        font-size: 30px;
+    }
+
 }
