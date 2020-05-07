@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
     <section class="con_main">
-        <form method="POST" action="/whole">
+        <form name="this_form" method="POST" action="/whole">
             <!-- <img src="static/img/logo.svg" alt=""> -->
             <div class="message_text">
                 <h1>サブテーマから連想するものをそれぞれ8つ入力しましょう。</h1>
@@ -23,8 +23,8 @@
                             <td><input type="text" id="text" name="idea3_1" placeholder=""></td>
                             <td><input type="text" id="text" name="idea3_2" placeholder=""></td>
                             <td><input type="text" id="text" name="idea3_3" placeholder=""></td>
-                        </tr name="top2">
-                        <tr>
+                        </tr>
+                        <tr name="top2">
                             <td><input type="text" id="text" name="idea1_4" placeholder=""></td>
                             <td class="sub_thema"><div>{{sub_themas.sub_thema1}}</div></td>
                             <td><input type="text" id="text" name="idea1_5" placeholder=""></td>
@@ -56,8 +56,8 @@
                             <td><input type="text" id="text" name="idea5_1" placeholder=""></td>
                             <td><input type="text" id="text" name="idea5_2" placeholder=""></td>
                             <td><input type="text" id="text" name="idea5_3" placeholder=""></td>
-                        </tr name="middle2">
-                        <tr>
+                        </tr>
+                        <tr name="middle2">
                             <td><input type="text" id="text" name="idea4_4" placeholder=""></td>
                             <td class="sub_thema"><div>{{sub_themas.sub_thema4}}</div></td>
                             <td><input type="text" id="text" name="idea4_5" placeholder=""></td>
@@ -89,8 +89,8 @@
                             <td><input type="text" id="text" name="idea8_1" placeholder=""></td>
                             <td><input type="text" id="text" name="idea8_2" placeholder=""></td>
                             <td><input type="text" id="text" name="idea8_3" placeholder=""></td>
-                        </tr name="bottom2">
-                        <tr>
+                        </tr>
+                        <tr name="bottom2">
                             <td><input type="text" id="text" name="idea6_4" placeholder=""></td>
                             <td class="sub_thema"><div>{{sub_themas.sub_thema6}}</div></td>
                             <td><input type="text" id="text" name="idea6_5" placeholder=""></td>
@@ -116,7 +116,8 @@
                 </div>
             </div>
             <div class="btn">
-                <button type="submit" id="submitBtn">これでOK！</button>
+                <button class="submit_btn" type="submit" id="submitBtn">これでOK！</button>
+                <!-- <a class="negative_btn" href="/sub">戻る</a> -->
             </div>
         </form>
     </section>

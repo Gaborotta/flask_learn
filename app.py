@@ -1,12 +1,15 @@
 #%%
 import os
 import json
-from flask import Flask
+from flask import Flask, session
 from flask import render_template, url_for, redirect, flash
 from flask import request
 from flask import make_response
 from werkzeug.utils import secure_filename
 from random import random
+
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String #DBのテーブルの型をインポート
 # from flask_wtf.csrf import CSRFProtect
 
 # from form import Thema_form, Sub_Thema_form
@@ -14,7 +17,10 @@ from random import random
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(24)
 app.config['WTF_CSRF_ENABLED'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask.sqlite' # DBへのパス
 # csrf = CSRFProtect(app)
+
+db = SQLAlchemy(app)
 
 # トップページ
 @app.route('/')
@@ -60,18 +66,29 @@ def whole_page():
         else:
             return render_template('main.html')
     elif request.method == 'POST':
+        # if len([i for i in request.form.items() if i != ""]) < 8:
+        #     response = make_response(render_template('whole.html', main_thema=main_thema, sub_themas=sub_themas))
+        #     response.set_cookie('ideas', value=json.dumps(request.form.to_dict()) )
+        #     return response
         main_thema = request.cookies.get('main_thema')
         sub_themas = json.loads(request.cookies.get('sub_themas'))
         
         print(request.form)       
-        response = make_response(render_template('whole.html', main_thema=main_thema, sub_themas=sub_themas))
+        response = make_response(render_template('finish.html', main_thema=main_thema, sub_themas=sub_themas, ideas=request.form.to_dict()))
         response.set_cookie('ideas', value=json.dumps(request.form.to_dict()) )
         return response    
 
 # 完成ページ
 @app.route('/finish', methods=["GET", "POST"])
 def finish_page():
-    return
+    if request.method == 'GET':
+        main_thema = request.cookies.get('main_thema')
+        sub_themas = json.loads(request.cookies.get('sub_themas'))
+        ideas = json.loads(request.cookies.get('ideas'))       
+        return render_template('finish.html', main_thema=main_thema, sub_themas=sub_themas, ideas=ideas)
+    elif request.method == 'POST':
+        twitter = request.cookies.get('main_thema')
+        return
 
 ### 下記勉強
 
